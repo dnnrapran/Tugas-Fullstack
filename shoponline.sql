@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 14, 2021 at 05:13 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.11
+-- Generation Time: Nov 27, 2022 at 03:36 PM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -36,7 +36,9 @@ CREATE TABLE `admin` (
 -- Dumping data for table `admin`
 --
 
-
+INSERT INTO `admin` (`personid`, `salary`) VALUES
+(7, 1),
+(8, 4);
 
 -- --------------------------------------------------------
 
@@ -56,6 +58,8 @@ CREATE TABLE `cart` (
 -- Dumping data for table `cart`
 --
 
+INSERT INTO `cart` (`personid`, `productid`, `quantity`, `cost`, `deliveryid`) VALUES
+(11, 1, 5, 500000, 6);
 
 -- --------------------------------------------------------
 
@@ -72,7 +76,10 @@ CREATE TABLE `customer` (
 -- Dumping data for table `customer`
 --
 
-
+INSERT INTO `customer` (`personid`, `paymentPreference`) VALUES
+(9, 'NA'),
+(10, 'NA'),
+(11, 'NA');
 
 -- --------------------------------------------------------
 
@@ -92,6 +99,8 @@ CREATE TABLE `delivery` (
 -- Dumping data for table `delivery`
 --
 
+INSERT INTO `delivery` (`deliveryid`, `personid`, `deliveryStatus`, `deliveryDate`, `totalCost`) VALUES
+(6, 11, 'Order Placed', '2022-11-27', 500000);
 
 -- --------------------------------------------------------
 
@@ -115,6 +124,12 @@ CREATE TABLE `persons` (
 -- Dumping data for table `persons`
 --
 
+INSERT INTO `persons` (`personid`, `fname`, `lname`, `accesslevel`, `accountpassword`, `dob`, `phoneno`, `email`, `address`) VALUES
+(7, 'Dini', 'Nur Aprilia Anggraeni', 'admin', '12345', '2022-11-09', 896213114, 'dininuraprilia0402@gmail.com', 'Desa Batujajar Barat'),
+(8, 'dini', 'aprilia', 'admin', 'D1ninuraprilia23', '2007-04-23', 897652314, 'dini@gmail.com', 'Desa Batujajar Barat'),
+(9, 'hilman', 'diana', 'customer', 'Aku098Z#@8', '2011-06-30', 4939384944, 'hilman@gmail.com', 'sumedang'),
+(10, 'fristia', 'tia', 'customer', '09Azaz@#158', '2015-06-27', 4443546744, 'fristia@gmail.com', 'Desa Batujajar'),
+(11, 'tia', 'aulia', 'customer', '09Azaz@#158', '2014-06-10', 7837284748, 'aulia@gmail.com', 'palembang');
 
 -- --------------------------------------------------------
 
@@ -136,20 +151,13 @@ CREATE TABLE `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`productID`,`productName`,`productPrice`,`productStock`,`productDescription`,`productCap`,`productPhoto`)
-VALUES (1, "MacBook Air M1", 100000,300,"Latest MacBook Air running on apple silicon M1 chip",5,"https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/macbook-air-space-gray-select-201810?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1603332211000");
+INSERT INTO `product` (`productID`, `productName`, `productPrice`, `productStock`, `productDescription`, `productCap`, `productPhoto`) VALUES
+(1, 'MacBook Air M1', 100000, 295, 'Latest MacBook Air running on apple silicon M1 chip', 5, 'https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/macbook-air-space-gray-select-201810?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1603332211000'),
+(2, 'Iphone 13', 120000, 200, 'Iphone 13, 256gb storage', 3, 'https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-13-family-select-2021?wid=940&hei=1112&fmt=jpeg&qlt=80&.v=1629842667000'),
+(3, 'Fart Spray', 500, 100, 'Play fart pranks for fun', 1, 'https://m.media-amazon.com/images/I/71jwVGVj+WL._SL1500_.jpg'),
+(4, 'Himalayan Fresh Air', 1000, 100, 'Fresh air packed from the himalayan mountains, can be used after the fart spray', 1, 'https://m.media-amazon.com/images/I/61ORV-YEj1L._SL1500_.jpg'),
+(5, 'Amazon Basics 4K LED TV', 25000, 250, '4K Ultra HD Smart LED Fire TV', 1, 'https://m.media-amazon.com/images/I/71AqQyCMmeL._SL1240_.jpg');
 
-INSERT INTO `product` (`productID`,`productName`,`productPrice`,`productStock`,`productDescription`,`productCap`,`productPhoto`)
-VALUES (2,"Iphone 13",120000,200,"Iphone 13, 256gb storage",3,"https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-13-family-select-2021?wid=940&hei=1112&fmt=jpeg&qlt=80&.v=1629842667000");
-
-INSERT INTO `product` (`productID`,`productName`,`productPrice`,`productStock`,`productDescription`,`productCap`,`productPhoto`)
-VALUES (3,"Fart Spray",500,100,"Play fart pranks for fun",1,"https://m.media-amazon.com/images/I/71jwVGVj+WL._SL1500_.jpg");
-
-INSERT INTO `product` (`productID`,`productName`,`productPrice`,`productStock`,`productDescription`,`productCap`,`productPhoto`)
-VALUES (4,"Himalayan Fresh Air",1000,100,"Fresh air packed from the himalayan mountains, can be used after the fart spray",1,"https://m.media-amazon.com/images/I/61ORV-YEj1L._SL1500_.jpg");
-
-INSERT INTO `product` (`productID`,`productName`,`productPrice`,`productStock`,`productDescription`,`productCap`,`productPhoto`)
-VALUES (5,"Amazon Basics 4K LED TV",25000,250,"4K Ultra HD Smart LED Fire TV",1,"https://m.media-amazon.com/images/I/71AqQyCMmeL._SL1240_.jpg");
 --
 -- Indexes for dumped tables
 --
@@ -199,13 +207,13 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `delivery`
 --
 ALTER TABLE `delivery`
-  MODIFY `deliveryid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `deliveryid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `persons`
 --
 ALTER TABLE `persons`
-  MODIFY `personid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `personid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
