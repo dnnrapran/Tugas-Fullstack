@@ -7,7 +7,7 @@ include 'backend/databaseConnect.php';
 <meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Your Cart | ShopOnline</title>
+	<title>Your Cart | MediMeds</title>
 	<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
@@ -93,7 +93,7 @@ include 'backend/databaseConnect.php';
             <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
               <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
                 <img class="ml-3 text-xl" src="https://cdn3.iconfinder.com/data/icons/small/512/buy_cart_ecommerce_shopping_online_store-512.png" style="height: 50px;"></img>
-                <span class="ml-3 text-xl"><text  style="font-size: 50px; font-family:'Montserrat', sans-serif;color: #000000;">ShopOnline</text></span>  
+                <span class="ml-3 text-xl"><text  style="font-size: 50px; font-family:'Montserrat', sans-serif;color: #000000;">MediMeds</text></span>  
             </a>
               <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
                 <a onclick="clearUser()" id="logoutBtn" class="mr-5 hover:text-gray-900 text-3xl" href="../index.html">Logout</a>

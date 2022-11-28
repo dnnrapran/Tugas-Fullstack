@@ -1,6 +1,6 @@
 {
-  "short_name": "ShopOnline",
-  "name": "ShopOnline",
+  "short_name": "MediMeds",
+  "name": "MediMeds",
   "icons": [
     {
       "src": "/images/icon-192.png",
@@ -17,5 +17,5 @@
   "background_color": "#edf2f7",
   "display": "standalone",
   "theme_color": "#edf2f7",
-  "description": "ShopOnline is an e-commerce user friendly application where the customer can register and purchase their required products."
+  "description": "MediMeds is an e-commerce user friendly application where the customer can register and purchase their required products."
 }

@@ -22,13 +22,20 @@
     text-align: center;
   }
 }
-#subscribe{
+#subscribe {
   min-height: 300px;
 }
-fieldset{
+fieldset {
   border-style: solid;
-  border-color:royalblue;
+  border-color: royalblue;
 }
-.sign-card{
+.sign-card {
   box-shadow: 1px 1px 12px rgb(145, 150, 158);
+}
+
+.medi {
+  color: #c9e265;
+}
+.meds {
+  color: #019cde;
 }
