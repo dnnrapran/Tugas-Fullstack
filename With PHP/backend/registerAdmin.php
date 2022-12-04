@@ -2,6 +2,7 @@
 $fname = $_POST['fname'];
 $lname = $_POST['lname'];
 $accountpassword = $_POST['password'];
+$password = md5($accountpassword);
 $dob = $_POST['dob'];
 $phoneno = $_POST['phoneno'];
 $email = $_POST['email'];
@@ -33,7 +34,7 @@ include 'databaseConnect.php';
      if ($rnum==0) {
       $stmt->close();
       $stmt = $conn->prepare($INSERT_ONE);
-      $stmt->bind_param("sssssiss", $fname, $lname, $accesslevel, $accountpassword, $dob, $phoneno, $email, $address );
+      $stmt->bind_param("sssssiss", $fname, $lname, $accesslevel, $password, $dob, $phoneno, $email, $address );
       $stmt->execute();
       $stmt->close();
 

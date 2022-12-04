@@ -2,6 +2,7 @@
 
 $adminEmail = $_POST['adminEmail'];
 $adminPassword = $_POST['adminPassword'];
+$password = md5($adminPassword);
 
 include 'databaseConnect.php';
 
@@ -15,7 +16,7 @@ $adminName = mysqli_fetch_array($adminNameTEMP);
 
 $conn->close();
 
-if($crctPass[0]==$adminPassword)
+if($crctPass[0]==$password)
 { ?>
 
     <script>

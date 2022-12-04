@@ -2,6 +2,7 @@
 $fname = trim($_POST['fname']);
 $lname = trim($_POST['lname']);
 $accountpassword = $_POST['password'];
+$password = md5($accountpassword);
 $dob = trim($_POST['dob']);
 $phoneno = trim($_POST['phoneno']);
 $email = trim($_POST['email']);
@@ -15,7 +16,7 @@ return preg_match($exp, $password);
 }
 
 function valid_phoneno($pno) {
-  $exp = "/^[1-9][0-9]{9}$/";
+  $exp = "/^0[0-9]{10,12}$/";
   return preg_match($exp, $pno);
 }
 
@@ -39,7 +40,7 @@ if (
   $paymentpreference === '' ||
   $accountpassword   === '' ||
   !valid_password($accountpassword) ||
-  !valid_phoneno($phoneno) ||
+  // !valid_phoneno($phoneno) ||
   !valid_dob($dob) ||
   !valid_email($email) 
 ) {
@@ -70,7 +71,7 @@ if (mysqli_connect_error()) {
   if ($rnum == 0) {
     $stmt->close();
     $stmt = $conn->prepare($INSERT_ONE);
-    $stmt->bind_param("sssssiss", $fname, $lname, $accesslevel, $accountpassword, $dob, $phoneno, $email, $address);
+    $stmt->bind_param("sssssiss", $fname, $lname, $accesslevel, $password, $dob, $phoneno, $email, $address);
     $stmt->execute();
     $stmt->close();
 

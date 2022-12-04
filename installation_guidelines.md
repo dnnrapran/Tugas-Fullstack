@@ -63,7 +63,7 @@
 
   ![xampp_control_panel_3](https://user-images.githubusercontent.com/16044116/135674877-7f0446b5-03bc-4a45-9e24-f29e62ea3d39.png)
 
-- Import `shoponline.sql` to your database, for example over phpMyAdmin
+- Import `apotek.sql` to your database, for example over phpMyAdmin
 
   > http://localhost/phpmyadmin/
 
@@ -73,7 +73,7 @@
 
   ![phpmyadmin_1](https://user-images.githubusercontent.com/16044116/135674893-dcbc20e1-0607-4da5-b04e-ce0b4b7143ee.png)
 
-  - On the Import Tab click slect file and select shoponline.sql afterwards click OK
+  - On the Import Tab click slect file and select apotek.sql afterwards click OK
 
   ![phpmyadmin_2](https://user-images.githubusercontent.com/16044116/135674911-909a56d6-3b7e-4b49-b0c0-0be1d5ab4e2d.png)
 

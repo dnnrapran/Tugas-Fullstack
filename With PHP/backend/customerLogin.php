@@ -2,6 +2,7 @@
 
 $custEmail = $_POST['custEmail'];
 $custPassword = $_POST['custPassword'];
+$password = md5($custPassword);
 
 include 'databaseConnect.php';
 
@@ -14,7 +15,7 @@ $custName = mysqli_fetch_array($custNameTEMP);
 
 $conn->close();
 
-if($crctPass[0]==$custPassword)
+if($crctPass[0]==$password)
 { ?>
 
     <script>
