@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2022 at 04:23 PM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Generation Time: Dec 07, 2022 at 08:26 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
+  `admin_id` int(11) NOT NULL,
   `personid` int(11) NOT NULL,
   `salary` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -36,10 +37,10 @@ CREATE TABLE `admin` (
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`personid`, `salary`) VALUES
-(7, 1),
-(8, 4),
-(12, 9);
+INSERT INTO `admin` (`admin_id`, `personid`, `salary`) VALUES
+(0, 7, 1),
+(1, 8, 4),
+(2, 12, 9);
 
 -- --------------------------------------------------------
 
@@ -48,6 +49,7 @@ INSERT INTO `admin` (`personid`, `salary`) VALUES
 --
 
 CREATE TABLE `cart` (
+  `cart_id` int(11) NOT NULL,
   `personid` int(11) NOT NULL,
   `productid` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
@@ -59,8 +61,8 @@ CREATE TABLE `cart` (
 -- Dumping data for table `cart`
 --
 
-INSERT INTO `cart` (`personid`, `productid`, `quantity`, `cost`, `deliveryid`) VALUES
-(11, 1, 5, 500000, 6);
+INSERT INTO `cart` (`cart_id`, `personid`, `productid`, `quantity`, `cost`, `deliveryid`) VALUES
+(1, 11, 1, 5, 500000, 6);
 
 -- --------------------------------------------------------
 
@@ -69,6 +71,7 @@ INSERT INTO `cart` (`personid`, `productid`, `quantity`, `cost`, `deliveryid`) V
 --
 
 CREATE TABLE `customer` (
+  `cust_id` int(11) NOT NULL,
   `personid` int(11) NOT NULL,
   `paymentPreference` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -77,11 +80,11 @@ CREATE TABLE `customer` (
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`personid`, `paymentPreference`) VALUES
-(9, 'NA'),
-(10, 'NA'),
-(11, 'NA'),
-(13, 'NA');
+INSERT INTO `customer` (`cust_id`, `personid`, `paymentPreference`) VALUES
+(0, 9, 'NA'),
+(1, 10, 'NA'),
+(2, 11, 'NA'),
+(3, 13, 'NA');
 
 -- --------------------------------------------------------
 
@@ -115,9 +118,9 @@ CREATE TABLE `persons` (
   `fname` varchar(25) NOT NULL,
   `lname` varchar(25) NOT NULL,
   `accesslevel` varchar(15) NOT NULL,
-  `accountpassword` varchar(50) NOT NULL,
+  `accountpassword` text NOT NULL,
   `dob` date NOT NULL,
-  `phoneno` bigint(11) NOT NULL,
+  `phoneno` varchar(15) NOT NULL,
   `email` varchar(40) NOT NULL,
   `address` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -127,13 +130,14 @@ CREATE TABLE `persons` (
 --
 
 INSERT INTO `persons` (`personid`, `fname`, `lname`, `accesslevel`, `accountpassword`, `dob`, `phoneno`, `email`, `address`) VALUES
-(7, 'Dini', 'Nur Aprilia Anggraeni', 'admin', '12345', '2022-11-09', 896213114, 'dininuraprilia0402@gmail.com', 'Desa Batujajar Barat'),
-(8, 'dini', 'aprilia', 'admin', 'D1ninuraprilia23', '2007-04-23', 897652314, 'dini@gmail.com', 'Desa Batujajar Barat'),
-(9, 'hilman', 'diana', 'customer', 'Aku098Z#@8', '2011-06-30', 4939384944, 'hilman@gmail.com', 'sumedang'),
-(10, 'fristia', 'tia', 'customer', '09Azaz@#158', '2015-06-27', 4443546744, 'fristia@gmail.com', 'Desa Batujajar'),
-(11, 'tia', 'aulia', 'customer', '09Azaz@#158', '2014-06-10', 7837284748, 'aulia@gmail.com', 'palembang'),
-(12, 'anggraeni', 'nia', 'admin', '96dfdd1063e9fec156073ecd773b2345', '2000-08-16', 837492729, 'nia@gmail.com', 'batujajar'),
-(13, 'aprilia', 'dini', 'customer', '3dacaf6f76d8b18ac5e1fb4d54dbb139', '2000-02-03', 893936837, 'april@gmail.com', 'Bandung');
+(7, 'Dini', 'Nur Aprilia Anggraeni', 'admin', '12345', '2022-11-09', '896213114', 'dininuraprilia0402@gmail.com', 'Desa Batujajar Barat'),
+(8, 'dini', 'aprilia', 'admin', 'D1ninuraprilia23', '2007-04-23', '897652314', 'dini@gmail.com', 'Desa Batujajar Barat'),
+(9, 'hilman', 'diana', 'customer', 'Aku098Z#@8', '2011-06-30', '4939384944', 'hilman@gmail.com', 'sumedang'),
+(10, 'fristia', 'tia', 'customer', '09Azaz@#158', '2015-06-27', '4443546744', 'fristia@gmail.com', 'Desa Batujajar'),
+(11, 'tia', 'aulia', 'customer', '09Azaz@#158', '2014-06-10', '7837284748', 'aulia@gmail.com', 'palembang'),
+(12, 'anggraeni', 'nia', 'admin', '96dfdd1063e9fec156073ecd773b2345', '2000-08-16', '837492729', 'nia@gmail.com', 'batujajar'),
+(13, 'aprilia', 'dini', 'customer', '3dacaf6f76d8b18ac5e1fb4d54dbb139', '2000-02-03', '893936837', 'april@gmail.com', 'Bandung'),
+(14, 'siapa', 'ya', 'customer', '523e52bf779dc0f3ff169c144dfeff74', '2001-01-01', '812345678', 'siapa@gmail.com', 'jl. jalan kemana saja');
 
 -- --------------------------------------------------------
 
@@ -182,25 +186,31 @@ INSERT INTO `product` (`productID`, `productName`, `productPrice`, `productStock
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
-  ADD PRIMARY KEY (`personid`);
+  ADD PRIMARY KEY (`admin_id`) USING BTREE,
+  ADD KEY `personid` (`personid`);
 
 --
 -- Indexes for table `cart`
 --
 ALTER TABLE `cart`
-  ADD PRIMARY KEY (`personid`,`productid`,`deliveryid`);
+  ADD PRIMARY KEY (`cart_id`) USING BTREE,
+  ADD KEY `deliveryid` (`deliveryid`),
+  ADD KEY `productid` (`productid`),
+  ADD KEY `personid` (`personid`);
 
 --
 -- Indexes for table `customer`
 --
 ALTER TABLE `customer`
-  ADD PRIMARY KEY (`personid`);
+  ADD PRIMARY KEY (`cust_id`) USING BTREE,
+  ADD KEY `personid` (`personid`);
 
 --
 -- Indexes for table `delivery`
 --
 ALTER TABLE `delivery`
-  ADD PRIMARY KEY (`deliveryid`);
+  ADD PRIMARY KEY (`deliveryid`),
+  ADD KEY `personid` (`personid`);
 
 --
 -- Indexes for table `persons`
@@ -220,6 +230,12 @@ ALTER TABLE `product`
 --
 
 --
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `delivery`
 --
 ALTER TABLE `delivery`
@@ -229,7 +245,43 @@ ALTER TABLE `delivery`
 -- AUTO_INCREMENT for table `persons`
 --
 ALTER TABLE `persons`
-  MODIFY `personid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `personid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `product`
+--
+ALTER TABLE `product`
+  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `admin`
+--
+ALTER TABLE `admin`
+  ADD CONSTRAINT `admin_ibfk_1` FOREIGN KEY (`personid`) REFERENCES `persons` (`personid`);
+
+--
+-- Constraints for table `cart`
+--
+ALTER TABLE `cart`
+  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`deliveryid`) REFERENCES `delivery` (`deliveryid`),
+  ADD CONSTRAINT `cart_ibfk_3` FOREIGN KEY (`productid`) REFERENCES `product` (`productID`),
+  ADD CONSTRAINT `cart_ibfk_4` FOREIGN KEY (`personid`) REFERENCES `persons` (`personid`);
+
+--
+-- Constraints for table `customer`
+--
+ALTER TABLE `customer`
+  ADD CONSTRAINT `customer_ibfk_1` FOREIGN KEY (`personid`) REFERENCES `persons` (`personid`);
+
+--
+-- Constraints for table `delivery`
+--
+ALTER TABLE `delivery`
+  ADD CONSTRAINT `delivery_ibfk_1` FOREIGN KEY (`personid`) REFERENCES `persons` (`personid`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
