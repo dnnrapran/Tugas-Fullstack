@@ -1,6 +1,5 @@
 .vscode
 .env
-.github/workflows
 
 ### Composer ###
 composer.phar
